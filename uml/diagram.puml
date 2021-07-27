@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class export
+class item
+interface arrayList
+
+arrayList -- item
+arrayList -> export
+
+class export {
+item[] arrayList
+exportTSV()
+exportHTML()
+}
+
+class item {
+serial
+price
+name
++setter()
++getter()
+}
+
+@enduml
