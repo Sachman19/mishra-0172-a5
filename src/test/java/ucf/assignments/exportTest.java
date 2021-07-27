@@ -24,8 +24,8 @@ class exportTest {
         export newExport = new export();
         newExport.exportTSV(testList);
 
-        System.out.print(System.getProperty("user.dir") + "/export.tsv");
-        File existFile = new File(System.getProperty("user.dir") + "/export.tsv");
+        System.out.print(System.getProperty("user.dir") + "/export.txt");
+        File existFile = new File(System.getProperty("user.dir") + "/export.txt");
         assertTrue(existFile.exists());
     }
 

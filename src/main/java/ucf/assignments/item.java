@@ -12,19 +12,19 @@ public class item {
     double price;
 
     //setters
-    private void setSerial(String input){
+    public void setSerial(String input){ //each of these individual setters should be used to change individual values
         serial = input;
     }
 
-    private void setName(String input){
+    public void setName(String input){
         name = input;
     }
 
-    private void setPrice(double input){
+    public void setPrice(double input){
         price = input;
     }
 
-    public void setInfo(String ser, String nam, double cost){
+    public void setInfo(String ser, String nam, double cost){ //This should be used to initialize object.
         setSerial(ser);
         setName(nam);
         setPrice(cost);

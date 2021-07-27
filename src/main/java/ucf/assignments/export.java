@@ -15,15 +15,15 @@ public class export {
     public void exportTSV(ArrayList<item> itemList) {
         try {
             //This locates the current working directory and places a file called export.tsv in it.
-            File export = new File(System.getProperty("user.dir") + "/export.tsv");
+            File export = new File(System.getProperty("user.dir") + "/export.txt");
 
             //If file creation is successful, print out to file. other case is that export already happens and the file already exists.
             if (export.createNewFile() || export.exists()) {
                 PrintWriter outFile = new PrintWriter(export);
-                outFile.println("Price\tSerial\tName");
+                outFile.println("Price\t Serial \tName");
                 for(int i = 0; i < itemList.size(); i++){
                     outFile.format("%.2f\t", itemList.get(i).getPrice());
-                    outFile.format("%s\t", itemList.get(i).getSerial());
+                    outFile.format("%10s\t", itemList.get(i).getSerial());
                     outFile.format("%s\n", itemList.get(i).getName());
                 }
                 outFile.close();
@@ -53,7 +53,7 @@ public class export {
                 for(int i = 0; i < itemList.size(); i++){
                     outFile.println("<tr>");
                     outFile.format("  <td>%.2f</td>\n", itemList.get(i).getPrice());
-                    outFile.format("  <td>%s</td>\n", itemList.get(i).getSerial());
+                    outFile.format("  <td>%10s</td>\n", itemList.get(i).getSerial());
                     outFile.format("  <td>%s</td>\n", itemList.get(i).getName());
                     outFile.println("</tr>");
                 }
