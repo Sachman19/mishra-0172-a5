@@ -17,8 +17,8 @@ public class export {
             //This locates the current working directory and places a file called export.tsv in it.
             File export = new File(System.getProperty("user.dir") + "/export.tsv");
 
-            //If file creation is successful, print out to file.
-            if (export.createNewFile()) {
+            //If file creation is successful, print out to file. other case is that export already happens and the file already exists.
+            if (export.createNewFile() || export.exists()) {
                 PrintWriter outFile = new PrintWriter(export);
                 outFile.println("Price\tSerial\tName");
                 for(int i = 0; i < itemList.size(); i++){
