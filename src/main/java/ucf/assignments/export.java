@@ -23,6 +23,7 @@ public class export {
                     outFile.format("%.12s/t", itemList.get(i).getSerial());
                     outFile.format("%.12s/n", itemList.get(i).getName());
                 }
+                outFile.close();
             }
         } catch (IOException e) {
             return;
