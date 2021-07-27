@@ -22,7 +22,7 @@ public class export {
                 PrintWriter outFile = new PrintWriter(export);
                 outFile.println("Price\tSerial\tName");
                 for(int i = 0; i < itemList.size(); i++){
-                    outFile.format("%f\t", itemList.get(i).getPrice());
+                    outFile.format("%.2f\t", itemList.get(i).getPrice());
                     outFile.format("%s\t", itemList.get(i).getSerial());
                     outFile.format("%s\n", itemList.get(i).getName());
                 }
@@ -40,7 +40,7 @@ public class export {
             File export = new File(System.getProperty("user.dir") + "/export.html");
 
             //If file creation is successful, print out to file.
-            if (export.createNewFile()) {
+            if (export.createNewFile() || export.exists()) {
                 PrintWriter outFile = new PrintWriter(export);
                 outFile.println("<!DOCTYPE html>\n<html>\n<head>");
                 outFile.println("<style>\ntable, th, td {\n  border: 1px solid black;\n  border-collapse: collapse;\n}");
@@ -52,7 +52,7 @@ public class export {
                 outFile.println("<tr>\n  <th>Price</th>\n  <th>Serial</th>\n  <th>Name</th>\n</tr>");
                 for(int i = 0; i < itemList.size(); i++){
                     outFile.println("<tr>");
-                    outFile.format("  <td>%f</td>\n", itemList.get(i).getPrice());
+                    outFile.format("  <td>%.2f</td>\n", itemList.get(i).getPrice());
                     outFile.format("  <td>%s</td>\n", itemList.get(i).getSerial());
                     outFile.format("  <td>%s</td>\n", itemList.get(i).getName());
                     outFile.println("</tr>");
