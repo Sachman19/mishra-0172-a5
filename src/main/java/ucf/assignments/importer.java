@@ -38,6 +38,7 @@ public class importer {
                             input = input.replace("<td>", "");
                             input = input.replace("</td>", "");
                             newItem.setName(input);
+                            returnList.add(newItem);
                         }
                     }
                 }
@@ -52,7 +53,9 @@ public class importer {
         File importFile = new File(filename);
         if(importFile.exists()){
             Scanner inFile = new Scanner(importFile);
-            //while
+            while(inFile.hasNextLine()){
+
+            }
 
             while(inFile.hasNextLine()){
                 String input;
