@@ -6,14 +6,16 @@
 class export
 class item
 interface arrayList
+class importer
 
+importer -> arrayList
 arrayList -- item
 arrayList -> export
 
 class export {
 item[] arrayList
-exportTSV()
-exportHTML()
++exportTSV()
++exportHTML()
 }
 
 class item {
@@ -22,6 +24,13 @@ price
 name
 +setter()
 +getter()
+}
+
+class importer {
+filename
+item[] importArrayList
++import()
+
 }
 
 @enduml
