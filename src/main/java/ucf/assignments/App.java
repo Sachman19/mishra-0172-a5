@@ -6,4 +6,6 @@
 package ucf.assignments;
 
 public class App {
+    //Import javafx and load it here. let javafx call functions.
+    //Initialize arraylist, import, and export objects. initialize items as needed for arraylist.
 }

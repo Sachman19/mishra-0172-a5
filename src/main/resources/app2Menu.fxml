@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="308.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerMenu">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" layoutX="76.0" layoutY="67.0" prefHeight="210.0" prefWidth="447.0" vbarPolicy="ALWAYS">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="445.0">
+               <children>
+                  <TableView editable="true" layoutX="1.0" onMouseClicked="#editItemMenu" prefHeight="210.0" prefWidth="447.0">
+                    <columns>
+                      <TableColumn fx:id="tablePrice" prefWidth="116.0" text="Price" />
+                      <TableColumn fx:id="tableSerial" prefWidth="160.0" text="Serial" />
+                        <TableColumn fx:id="tableName" prefWidth="155.0" text="Name" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <MenuBar layoutY="2.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <Menu mnemonicParsing="false" text="Import">
+                    <items>
+                      <MenuItem fx:id="importTSVbutton" mnemonicParsing="false" onAction="#importTSV" text="TSV" />
+                        <MenuItem fx:id="importHTMLbutton" mnemonicParsing="false" onAction="#importHTML" text="HTML" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Export">
+                     <items>
+                        <MenuItem fx:id="exportTSVbutton" mnemonicParsing="false" onAction="#exportTSV" text="TSV" />
+                        <MenuItem fx:id="exportHTMLbutton" mnemonicParsing="false" onAction="#exportHTML" text="HTML" />
+                     </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" text="Clear" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Sort">
+            <items>
+              <MenuItem fx:id="sortNameButton" mnemonicParsing="false" onAction="#sortName" text="Name" />
+                  <MenuItem fx:id="sortSerialButton" mnemonicParsing="false" onAction="#sortSerial" text="Serial" />
+                  <MenuItem fx:id="sortPriceButton" mnemonicParsing="false" onAction="#sortPrice" text="Price" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="readMeButton" mnemonicParsing="false" onAction="#readMe" text="readme" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button fx:id="addButton" layoutX="453.0" layoutY="35.0" mnemonicParsing="false" onAction="#addItem" prefHeight="25.0" prefWidth="71.0" text="Add" />
+      <TextField fx:id="searchBar" layoutX="77.0" layoutY="35.0" onAction="#searchItems" promptText="search" />
+   </children>
+</fx:root>
