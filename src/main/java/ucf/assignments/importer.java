@@ -38,9 +38,9 @@ public class importer {
                             input = input.replace("<td>", "");
                             input = input.replace("</td>", "");
                             newItem.setName(input);
-                            returnList.add(newItem);
                         }
                     }
+                    returnList.add(newItem);
                 }
             }
             inFile.close();
