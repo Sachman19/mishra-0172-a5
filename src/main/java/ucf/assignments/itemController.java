@@ -14,4 +14,10 @@ public class itemController {
 
     public void closeWindow(ActionEvent actionEvent) {
     }
+
+    public void deleteItem(ActionEvent actionEvent) {
+    }
+
+    public void saveItem(ActionEvent actionEvent) {
+    }
 }
