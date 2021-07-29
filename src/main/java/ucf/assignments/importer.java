@@ -11,9 +11,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class importer {
-    public ArrayList<item> importHTML(String filename) throws FileNotFoundException {
+    public ArrayList<item> importHTML(File importFile) throws FileNotFoundException {
         ArrayList<item> returnList = new ArrayList<>();
-        File importFile = new File(filename);
         if(importFile.exists()){
             Scanner inFile = new Scanner(importFile);
             while(inFile.hasNextLine()){
@@ -48,9 +47,8 @@ public class importer {
         return returnList;
     }
 
-    public ArrayList<item> importTSV(String filename) throws FileNotFoundException {
+    public ArrayList<item> importTSV(File importFile) throws FileNotFoundException {
         ArrayList<item> returnList = new ArrayList<>();
-        File importFile = new File(filename);
         if(importFile.exists()){
             Scanner inFile = new Scanner(importFile);
             inFile.nextLine();

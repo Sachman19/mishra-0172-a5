@@ -1,14 +1,14 @@
 package ucf.assignments;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class controllerMenu {
@@ -29,10 +29,10 @@ public class controllerMenu {
     public Button addButton;
     public TextField searchBar;
 
-    public void editItemMenu(MouseEvent mouseEvent) {
+    public void editItemMenu() {
     }
 
-    public void importTSV(ActionEvent actionEvent) {
+    public void importTSV() throws FileNotFoundException {
         FileChooser importMenu = new FileChooser();
         importMenu.setTitle("Choose a File.");
 
@@ -44,34 +44,63 @@ public class controllerMenu {
         File importFile = importMenu.showOpenDialog(fileSelect);
 
         if(importFile != null){
+            importer newImport = new importer();
+            ArrayList<item> tempList = newImport.importTSV(importFile);
+            itemList.addAll(tempList);
 
+            tempList.clear(); //all items are added to the original arraylist so no need for this one anymore.
         }
     }
 
-    public void importHTML(ActionEvent actionEvent) {
+    public void importHTML() throws FileNotFoundException {
+        FileChooser importMenu = new FileChooser();
+        importMenu.setTitle("Choose a File.");
+
+        importMenu.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Text Files", "*.html")
+        );
+
+        Stage fileSelect = new Stage();
+        File importFile = importMenu.showOpenDialog(fileSelect);
+
+        if(importFile != null){
+            importer newImport = new importer();
+            ArrayList<item> tempList = newImport.importHTML(importFile);
+            itemList.addAll(tempList);
+
+            tempList.clear(); //all items are added to the original arraylist so no need for this one anymore.
+        }
     }
 
-    public void exportTSV(ActionEvent actionEvent) {
+    public void exportTSV() {
+        export newExport = new export();
+        newExport.exportTSV(itemList);
     }
 
-    public void exportHTML(ActionEvent actionEvent) {
+    public void exportHTML() {
+        export newExport = new export();
+        newExport.exportHTML(itemList);
     }
 
-    public void sortName(ActionEvent actionEvent) {
+    public void sortName() {
     }
 
-    public void sortSerial(ActionEvent actionEvent) {
+    public void sortSerial() {
     }
 
-    public void sortPrice(ActionEvent actionEvent) {
+    public void sortPrice() {
     }
 
-    public void readMe(ActionEvent actionEvent) {
+    public void readMe() {
     }
 
-    public void addItem(ActionEvent actionEvent) {
+    public void addItem() {
     }
 
-    public void searchItems(ActionEvent actionEvent) {
+    public void searchItems() {
+    }
+
+    public void initArrayList(ArrayList<item> startList){
+        itemList = startList;
     }
 }
