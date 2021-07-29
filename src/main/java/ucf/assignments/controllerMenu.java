@@ -1,9 +1,6 @@
 package ucf.assignments;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -102,6 +99,42 @@ public class controllerMenu {
     }
 
     public void addItem() {
+        //Check for validity of input
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+
+        String serial = serialInput.getText(), name = nameInput.getText();
+        //Check that price is a number
+        try{
+            Double price = Double.parseDouble(priceInput.getText());
+        } catch (NumberFormatException e){
+            errorAlert.setHeaderText("Price must be numerical.");
+            errorAlert.setContentText("The price must be a number. Decimals are within scope.");
+            errorAlert.showAndWait();
+            return;
+        }
+        Double price = Double.parseDouble(priceInput.getText());
+
+        //check that serial length is correct
+        if(serial.length() != 10){
+            errorAlert.setHeaderText("Serial Length Invalid");
+            errorAlert.setContentText("The serial must be 10 characters. Serial is currently " + serial.length() + " characters long");
+            errorAlert.showAndWait();
+            return;
+        }
+
+        //check that serial length is correct
+        if(name.length() < 2 || name.length() > 256){
+            errorAlert.setHeaderText("Name Length Invalid");
+            errorAlert.setContentText("The name must be between 2 and 256 characters. The name is currently " + name.length() + " characters long");
+            errorAlert.showAndWait();
+            return;
+        }
+
+        //If all checks go through, then all strings are legitimate.
+        //Create item
+        item temp = new item();
+        temp.setInfo(serial, name, price);
+        itemList.add(temp);
     }
 
     public void searchItems() {
