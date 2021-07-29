@@ -15,9 +15,18 @@ public class controllerMenu {
 
     private ArrayList<item> itemList;
 
+    //Used to add items to Arraylist
+    public TextField priceInput;
+    public TextField serialInput;
+    public TextField nameInput;
+    public Button addButton;
+
+    //table elements
     public TableColumn tablePrice;
     public TableColumn tableSerial;
     public TableColumn tableName;
+
+    //Menu items
     public MenuItem importTSVButton;
     public MenuItem importHTMLButton;
     public MenuItem exportTSVButton;
@@ -26,11 +35,9 @@ public class controllerMenu {
     public MenuItem sortSerialButton;
     public MenuItem sortPriceButton;
     public MenuItem readMeButton;
-    public Button addButton;
-    public TextField searchBar;
 
-    public void editItemMenu() {
-    }
+    //Search bar
+    public TextField searchBar;
 
     public void importTSV() throws FileNotFoundException {
         FileChooser importMenu = new FileChooser();
